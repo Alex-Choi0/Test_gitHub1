@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <p>Hello World</p>
+    <button onclick="myFunction('nothing1')" id="btn1" style= "background-color:aliceblue; color:black">copy</button>
+    
+</body>
+<script>
+    function myFunction(copyText) {
+      console.log(`${copyText}`);
+      var dummy = document.createElement("textarea");
+      document.body.appendChild(dummy);
+      dummy.value = copyText;
+      dummy.select();
+      document.execCommand("copy");
+      document.body.removeChild(dummy);
+
+      // 색을 변경해주는 설정
+      let property = document.getElementById('btn1');
+      console.log(property);
+      property.style.backgroundColor = "#7FFF00";
+      // 5초후에 색이 원래대로 돌아온다.
+      setTimeout(()=>{
+        property.style.backgroundColor = "#f0f8ff";
+      }, 5000)
+      
+    }
+    </script>
+</html>
